@@ -14,7 +14,7 @@ object Versions {
     const val okHttp = "4.7.2"
     const val retrofit = "2.9.0"
     const val daggerHilt = "2.42"
-    const val glide = "4.6.1"
+    const val glide = "4.13.0"
 
     object App {
         const val id = "com.akyuzg.dailyaffimation"

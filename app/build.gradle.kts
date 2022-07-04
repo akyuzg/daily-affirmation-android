@@ -1,6 +1,8 @@
 plugins {
     id(Plugins.androidApplication)
     id (Plugins.jetbrainsKotlinAndroid)
+    id(Plugins.kotlinKapt)
+    id(Plugins.daggerHilt)
 }
 
 android {
@@ -12,7 +14,7 @@ android {
         targetSdk = Versions.targetSdk
         versionCode = Versions.App.versionCode
         versionName = Versions.App.versionName
-
+        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -31,19 +33,20 @@ android {
     }
 }
 
+
+importCommonDependencies()
+importTestDependencies()
+
 dependencies {
 
-    implementation(Dependencies.ArchitectureComponents.coreKtx)
-    implementation(Dependencies.ArchitectureComponents.appCompat)
+    // Dependency Injection
+    implementation(Dependencies.DaggerHilt.core)
+    kapt(Dependencies.DaggerHilt.compiler)
 
-    implementation(Dependencies.material)
-    implementation(Dependencies.ArchitectureComponents.constraintLayout)
+    // Project modules
+    implementation(project(Modules.presentation))
+    implementation(project(Modules.domain))
+    implementation(project(Modules.data))
 
-    // Test dependencies
-    testImplementation(Dependencies.Test.junit)
-    androidTestImplementation(Dependencies.Test.extJunit)
-    androidTestImplementation(Dependencies.Test.espressoCore)
-
-    implementation(Dependencies.ArchitectureComponents.splashScreen)
 
 }
