@@ -15,6 +15,7 @@ object Dependencies {
     object Navigation {
         const val fragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.ArchitectureComponents.navigation}"
         const val uiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.ArchitectureComponents.navigation}"
+        const val compose = "androidx.navigation:navigation-compose:2.5.0"
     }
 
     object Retrofit {
@@ -27,8 +28,21 @@ object Dependencies {
         const val compiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
     }
 
+    object Compose {
+        const val ui = "androidx.compose.ui:ui:${Versions.ArchitectureComponents.compose}"
+        const val activityCompose = "androidx.activity:activity-compose:${Versions.ArchitectureComponents.activityCompose}"
+        const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.ArchitectureComponents.compose}"
+        const val foundation = "androidx.compose.foundation:foundation:${Versions.ArchitectureComponents.compose}"
+        const val material = "androidx.compose.material:material:${Versions.ArchitectureComponents.compose}"
+        const val materialIconsCore = "androidx.compose.material:material-icons-core:${Versions.ArchitectureComponents.compose}"
+        const val materialIconsExtended = "androidx.compose.material:material-icons-extended:${Versions.ArchitectureComponents.compose}"
 
+        const val animation = "androidx.compose.animation:animation:${Versions.ArchitectureComponents.compose}"
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.ArchitectureComponents.composeViewModel}"
 
+        const val liveData = "androidx.compose.runtime:runtime-livedata::${Versions.ArchitectureComponents.compose}"
+        const val rxJava = "androidx.compose.runtime:runtime-rxjava2:${Versions.ArchitectureComponents.compose}"
+    }
 
     object Architecture{
         const val appCompat = "androidx.appcompat:appcompat:${Versions.ArchitectureComponents.appCompat}"
@@ -61,7 +75,7 @@ object Dependencies {
         const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.TestFrameworks.espresso}"
         const val extJunit = "androidx.test.ext:junit:${Versions.TestFrameworks.testExtJunit}"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.TestFrameworks.coroutines}"
+        const val compose = "androidx.compose.ui:ui-test-junit4:${Versions.ArchitectureComponents.compose}"
     }
-
 
 }

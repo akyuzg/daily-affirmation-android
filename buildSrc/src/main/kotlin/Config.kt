@@ -49,9 +49,32 @@ fun Project.importTestDependencies(){
         androidTestImplementation(Dependencies.Test.extJunit)
         androidTestImplementation(Dependencies.Test.espressoCore)
         androidTestImplementation(Dependencies.Test.coroutines)
+        androidTestImplementation(Dependencies.Test.compose)
     }
+}
 
+fun Project.importComposeDependencies(){
+    dependencies {
+        val implementation by configurations
 
+        implementation(Dependencies.Compose.activityCompose)
+
+        implementation(Dependencies.Compose.ui)
+        // Tooling support (Previews, etc.)
+        implementation(Dependencies.Compose.uiTooling)
+        // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+        implementation(Dependencies.Compose.foundation)
+        implementation(Dependencies.Compose.material)
+        // Material design icons
+        implementation(Dependencies.Compose.materialIconsCore)
+        implementation(Dependencies.Compose.materialIconsExtended)
+        // Integration with observables
+        //implementation(Dependencies.Compose.liveData)
+        implementation(Dependencies.Compose.rxJava)
+
+        implementation(Dependencies.Compose.animation)
+        implementation(Dependencies.Compose.viewModel)
+    }
 }
 
 

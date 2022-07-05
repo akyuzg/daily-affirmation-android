@@ -2,6 +2,7 @@ plugins {
     id(Plugins.androidApplication)
     id (Plugins.jetbrainsKotlinAndroid)
     id(Plugins.kotlinKapt)
+    id(Plugins.kotlinAndroid)
     id(Plugins.daggerHilt)
 }
 
@@ -18,6 +19,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        compose = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled =  false
@@ -30,6 +35,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = Versions.jvmTarget
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion =  "1.2.0"
     }
 }
 
