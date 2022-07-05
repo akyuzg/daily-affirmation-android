@@ -30,7 +30,7 @@ object Dependencies {
 
 
 
-    object ArchitectureComponents{
+    object Architecture{
         const val appCompat = "androidx.appcompat:appcompat:${Versions.ArchitectureComponents.appCompat}"
         const val coreKtx = "androidx.core:core-ktx:${Versions.ArchitectureComponents.core}"
 
