@@ -12,14 +12,4 @@ val Typography = Typography(
         fontFamily = FontFamily.Default,
         fontSize = 24.sp
     ),
-
-    labelMedium = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontSize = 20.sp
-    ),
-
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontSize = 14.sp
-    ),
 )

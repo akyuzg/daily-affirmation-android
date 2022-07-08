@@ -2,6 +2,10 @@ package com.akyuzg.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
+val White = Color(0xffffffff)
+val Facebook = Color(0xff0078FF)
+
+
 val Green10 = Color(0xff003314)
 val Green20 = Color(0xff006627)
 val Green30 = Color(0xff00993b)

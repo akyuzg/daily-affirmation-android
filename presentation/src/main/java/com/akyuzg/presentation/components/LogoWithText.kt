@@ -9,6 +9,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
+import com.akyuzg.presentation.theme.White
 
 @Composable
 fun LogoWithText(){
@@ -18,9 +20,10 @@ fun LogoWithText(){
         ) {
         Logo()
         Text(
-            text = "Motto",
+            text = "motto",
             fontWeight = FontWeight.Bold,
-            style = MaterialTheme.typography.labelLarge,
+            color = White,
+            fontSize = 30.sp,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
 
