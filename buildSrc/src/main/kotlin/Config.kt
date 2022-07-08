@@ -56,15 +56,19 @@ fun Project.importTestDependencies(){
 fun Project.importComposeDependencies(){
     dependencies {
         val implementation by configurations
-
-        implementation(Dependencies.Compose.activityCompose)
+        val debugImplementation by configurations
 
         implementation(Dependencies.Compose.ui)
-        // Tooling support (Previews, etc.)
-        implementation(Dependencies.Compose.uiTooling)
+        implementation(Dependencies.Compose.uiToolingPreview)
+        debugImplementation(Dependencies.Compose.uiTooling)
+        implementation(Dependencies.Compose.activityCompose)
+
+        debugImplementation("androidx.customview:customview:1.2.0-alpha01")
+        debugImplementation("androidx.customview:customview-poolingcontainer:1.0.0-alpha01")
+
         // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
         implementation(Dependencies.Compose.foundation)
-        implementation(Dependencies.Compose.material)
+
         // Material design icons
         implementation(Dependencies.Compose.materialIconsCore)
         implementation(Dependencies.Compose.materialIconsExtended)

@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.androidLibrary)
     id(Plugins.jetbrainsKotlinAndroid)
+    id(Plugins.kotlinAndroid)
 }
 
 android {
@@ -34,7 +35,7 @@ android {
         jvmTarget = "1.8"
     }
     composeOptions {
-        kotlinCompilerExtensionVersion =  "1.2.0"
+        kotlinCompilerExtensionVersion =  Versions.composeCompiler
     }
     buildFeatures {
         compose = true
@@ -57,11 +58,9 @@ dependencies {
 
     // ui
     implementation(Dependencies.Architecture.splashScreen)
-    implementation(Dependencies.material)
-
+    //implementation(Dependencies.material)
 
     implementation(Dependencies.glide)
-
     annotationProcessor(Dependencies.glideCompiler)
 
     implementation(Dependencies.Navigation.fragmentKtx)
@@ -75,17 +74,15 @@ dependencies {
 
     // architecture  components
     implementation(Dependencies.Architecture.viewModel)
-    implementation(Dependencies.Architecture.viewModelRuntime)
+    implementation(Dependencies.Architecture.runtimeKtx)
     implementation(Dependencies.Architecture.lifecycleCommon)
     implementation(Dependencies.Architecture.livedata)
     implementation(Dependencies.Architecture.lifecycleCompiler)
     implementation(Dependencies.Architecture.constraintLayout)
 
+    implementation(Dependencies.material3)
+    implementation(Dependencies.material3WindowSizeClass)
 
-    implementation("androidx.compose.material3:material3:1.0.0-alpha01")
-    implementation("androidx.compose.ui:ui-tooling-preview:${Versions.ArchitectureComponents.compose}")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Versions.ArchitectureComponents.compose}")
-    debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}")
+    testImplementation(Dependencies.Test.junit)
 
 }

@@ -1,6 +1,9 @@
 object Dependencies {
 
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val material3 = "androidx.compose.material3:material3:${Versions.material3}"
+    const val material3WindowSizeClass = "androidx.compose.material3:material3-window-size-class:${Versions.material3}"
+
 
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
@@ -32,6 +35,7 @@ object Dependencies {
         const val ui = "androidx.compose.ui:ui:${Versions.ArchitectureComponents.compose}"
         const val activityCompose = "androidx.activity:activity-compose:${Versions.ArchitectureComponents.activityCompose}"
         const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.ArchitectureComponents.compose}"
+        const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.ArchitectureComponents.compose}"
         const val foundation = "androidx.compose.foundation:foundation:${Versions.ArchitectureComponents.compose}"
         const val material = "androidx.compose.material:material:${Versions.ArchitectureComponents.compose}"
         const val materialIconsCore = "androidx.compose.material:material-icons-core:${Versions.ArchitectureComponents.compose}"
@@ -52,7 +56,7 @@ object Dependencies {
         const val splashScreen = "androidx.core:core-splashscreen:1.0.0-beta01"
 
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.ArchitectureComponents.lifecycle}"
-        const val viewModelRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha03"
+        const val runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
 
         const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.ArchitectureComponents.lifecycle}"
         const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.ArchitectureComponents.lifecycle}"

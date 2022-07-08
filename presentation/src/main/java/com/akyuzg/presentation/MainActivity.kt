@@ -3,24 +3,36 @@ package com.akyuzg.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.akyuzg.presentation.navigation.Navigation
-import com.akyuzg.presentation.theme.Primary
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.akyuzg.presentation.navigation.AppNavGraph
+import com.akyuzg.presentation.theme.DailyAffirmationAppTheme
+
 
 class MainActivity : ComponentActivity() {
+
+    private val viewmodel by viewModels<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen().apply {
+            setKeepOnScreenCondition {
+                viewmodel.loading.value
+            }
+        }
         setContent {
-           Navigation()
+            DailyAffirmationAppTheme() {
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                    AppNavGraph()
+                }
+            }
         }
     }
+
 }
 

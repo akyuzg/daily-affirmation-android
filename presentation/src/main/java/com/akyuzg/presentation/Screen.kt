@@ -1,6 +1,7 @@
 package com.akyuzg.presentation
 
 sealed class Screen(val route: String) {
+    object LoginRegister : Screen("loginRegister_screen")
     object MainScreen : Screen("main_screen")
     object DetailScreen : Screen("detail_screen")
 
