@@ -1,32 +1,30 @@
 plugins {
-    id(Plugins.androidApplication)
-    id (Plugins.jetbrainsKotlinAndroid)
-    id(Plugins.kotlinKapt)
+    id(Plugins.androidLibrary)
+    id(Plugins.jetbrainsKotlinAndroid)
     id(Plugins.kotlinAndroid)
-    id(Plugins.daggerHilt)
 }
 
 android {
-    compileSdk = Versions.compileSdk
+    compileSdk = 32
 
     defaultConfig {
-        applicationId = Versions.App.id
-        minSdk = Versions.minSdk
-        targetSdk = Versions.targetSdk
-        versionCode = Versions.App.versionCode
-        versionName = Versions.App.versionName
-        multiDexEnabled = true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
+        minSdk = 21
+        targetSdk = 32
 
-    buildFeatures {
-        compose = true
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled =  false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -34,27 +32,25 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = Versions.jvmTarget
+        jvmTarget = "1.8"
     }
     composeOptions {
-        kotlinCompilerExtensionVersion =  "1.2.0"
+        kotlinCompilerExtensionVersion =  Versions.composeCompiler
+    }
+    buildFeatures {
+        compose = true
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
 
-importCommonDependencies()
-importTestDependencies()
-importCoroutinesDependencies()
-importNetworkDepencencies()
+importComposeDependencies()
 
 dependencies {
-
-    // Dependency Injection
-    implementation(Dependencies.DaggerHilt.core)
-    implementation("androidx.compose.ui:ui-tooling-preview:1.1.1")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.1.1")
-    kapt(Dependencies.DaggerHilt.compiler)
-    implementation(Dependencies.javaInject)
 
     // support
     implementation(Dependencies.Architecture.coreKtx)
@@ -88,7 +84,5 @@ dependencies {
     implementation(Dependencies.material3WindowSizeClass)
 
     testImplementation(Dependencies.Test.junit)
-
-
 
 }

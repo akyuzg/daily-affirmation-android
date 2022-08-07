@@ -14,6 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DailyAffirmation"
 include(":app")
-include(":domain")
-include(":data")
-include(":presentation")
