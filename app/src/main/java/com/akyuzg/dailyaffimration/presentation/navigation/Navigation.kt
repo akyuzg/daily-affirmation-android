@@ -7,14 +7,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.akyuzg.dailyaffimration.presentation.Screen
-import com.akyuzg.dailyaffimration.presentation.loginregister.LoginRegisterScreen
+import com.akyuzg.dailyaffimration.presentation.affirmation_stack.MainScreen
 
 @Composable
 fun AppNavGraph() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.LoginRegister.route) {
         composable(route = Screen.LoginRegister.route) {
-            LoginRegisterScreen(navController = navController)
+            //LoginRegisterScreen(navController = navController)
+            MainScreen(navController = navController)
         }
         composable(
             route = Screen.DetailScreen.route + "/{name}",

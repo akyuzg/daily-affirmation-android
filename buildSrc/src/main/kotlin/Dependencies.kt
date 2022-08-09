@@ -38,7 +38,7 @@ object Dependencies {
         const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.ArchitectureComponents.compose}"
         const val foundation = "androidx.compose.foundation:foundation:${Versions.ArchitectureComponents.compose}"
         const val material = "androidx.compose.material:material:${Versions.ArchitectureComponents.compose}"
-        const val materialIconsCore = "androidx.compose.material:material-icons-com.akyuzg.dailyaffimration.core:${Versions.ArchitectureComponents.compose}"
+        const val materialIconsCore = "androidx.compose.material:material-icons-core:${Versions.ArchitectureComponents.compose}"
         const val materialIconsExtended = "androidx.compose.material:material-icons-extended:${Versions.ArchitectureComponents.compose}"
 
         const val animation = "androidx.compose.animation:animation:${Versions.ArchitectureComponents.compose}"
@@ -50,10 +50,10 @@ object Dependencies {
 
     object Architecture{
         const val appCompat = "androidx.appcompat:appcompat:${Versions.ArchitectureComponents.appCompat}"
-        const val coreKtx = "androidx.com.akyuzg.dailyaffimration.core:com.akyuzg.dailyaffimration.core-ktx:${Versions.ArchitectureComponents.core}"
+        const val coreKtx = "androidx.core:core-ktx:${Versions.ArchitectureComponents.core}"
 
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.ArchitectureComponents.constraintLayout}"
-        const val splashScreen = "androidx.com.akyuzg.dailyaffimration.core:com.akyuzg.dailyaffimration.core-splashscreen:1.0.0-beta01"
+        const val splashScreen = "androidx.core:core-splashscreen:1.0.0-beta01"
 
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.ArchitectureComponents.lifecycle}"
         const val runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
@@ -61,7 +61,7 @@ object Dependencies {
         const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.ArchitectureComponents.lifecycle}"
         const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.ArchitectureComponents.lifecycle}"
         const val lifecycleCommon = "androidx.lifecycle:lifecycle-common-java8:${Versions.ArchitectureComponents.lifecycleCommon}"
-        const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-com.akyuzg.dailyaffimration.core:${Versions.ArchitectureComponents.coroutines}"
+        const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.ArchitectureComponents.coroutines}"
         const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.ArchitectureComponents.coroutines}"
         const val multidex = "androidx.multidex:multidex:${Versions.ArchitectureComponents.multidex}"
     }
@@ -76,7 +76,7 @@ object Dependencies {
     object Test {
         const val junit = "junit:junit:${Versions.TestFrameworks.junit}"
         const val runner = "androidx.test:runner:${Versions.TestFrameworks.testRunner}"
-        const val espressoCore = "androidx.test.espresso:espresso-com.akyuzg.dailyaffimration.core:${Versions.TestFrameworks.espresso}"
+        const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.TestFrameworks.espresso}"
         const val extJunit = "androidx.test.ext:junit:${Versions.TestFrameworks.testExtJunit}"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.TestFrameworks.coroutines}"
         const val compose = "androidx.compose.ui:ui-test-junit4:${Versions.ArchitectureComponents.compose}"

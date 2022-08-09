@@ -1,7 +1,9 @@
 package com.akyuzg.dailyaffimration.domain.model
 
+
 data class Affirmation(
     val id: Long,
-    val affirmation: String,
+    val text: String,
     val categoryId: Int
 )
+

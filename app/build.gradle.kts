@@ -19,6 +19,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
     buildFeatures {
         compose = true
     }
@@ -72,9 +73,12 @@ dependencies {
     //implementation("androidx.navigation:navigation-compose:2.5.0")
     implementation(Dependencies.Navigation.compose)
 
-    // Dependency Injection
-    implementation(Dependencies.DaggerHilt.core)
-    //kapt(Dependencies.DaggerHilt.com.akyuzg.dailyaffimration.core)
+    // Dagger - Hilt
+    implementation("com.google.dagger:hilt-android:1.0.0")
+    kapt("com.google.dagger:hilt-android-compiler:1.0.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+
 
     // architecture  components
     implementation(Dependencies.Architecture.viewModel)
@@ -87,8 +91,27 @@ dependencies {
     implementation(Dependencies.material3)
     implementation(Dependencies.material3WindowSizeClass)
 
-    testImplementation(Dependencies.Test.junit)
+    // Local unit tests
+    //testImplementation("androidx.test.core:1.4.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
+    testImplementation("junit:junit:3.13.2")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("com.google.truth:truth:1.1.3")
+    //testImplementation("com.squareup.okhttp3.mockwebserver:4.9.1")
+    //testImplementation("io.mockk:mockk:1.10.5")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.1.0-alpha04")
 
+    // Instrumentation tests
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.37")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.37")
+    androidTestImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.arch.core:core-testing:2.1.0")
+    androidTestImplementation("com.google.truth:truth:1.1.3")
+    //androidTestImplementation("com.squareup.okhttp3.mockwebserver:4.9.1")
+    //androidTestImplementation("io.mockk:mockk:1.10.5")
+    androidTestImplementation("androidx.test:runner:1.4.0")
 
+    implementation("androidx.multidex:multidex:2.0.1")
 
 }
