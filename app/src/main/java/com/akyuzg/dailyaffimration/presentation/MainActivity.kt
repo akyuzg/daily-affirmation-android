@@ -1,6 +1,7 @@
 package com.akyuzg.dailyaffimration.presentation
 
 import android.os.Bundle
+import android.view.Window
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -20,12 +21,15 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.requestFeature(Window.FEATURE_ACTION_BAR);
+        actionBar?.hide();
 
-      /*  installSplashScreen().apply {
-            setKeepOnScreenCondition {
-                viewmodel.loading.value
-            }
-        } */
+
+        /*  installSplashScreen().apply {
+              setKeepOnScreenCondition {
+                  viewmodel.loading.value
+              }
+          } */
         setContent {
             DailyAffirmationAppTheme {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {

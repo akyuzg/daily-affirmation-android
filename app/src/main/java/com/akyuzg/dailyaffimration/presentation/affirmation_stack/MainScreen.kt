@@ -1,23 +1,26 @@
 package com.akyuzg.dailyaffimration.presentation.affirmation_stack
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.akyuzg.dailyaffimration.presentation.components.BackgroundImage
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.akyuzg.dailyaffimration.presentation.components.AffirmationItem
-import com.akyuzg.dailyaffimration.presentation.components.ErrorDialog
-import com.akyuzg.dailyaffimration.presentation.theme.DailyAffirmationAppTheme
+import com.akyuzg.dailyaffimration.presentation.components.AffirmationItemSingleton
+import com.akyuzg.dailyaffimration.presentation.theme.IconButtonBackgroundColor
 import com.akyuzg.dailyaffimration.presentation.theme.White
+import com.akyuzg.dailyaffirmation.R
 
 
 @Composable
@@ -32,32 +35,23 @@ fun MainScreen(
         .fillMaxHeight()
     ) {
 
-        BackgroundImage()
-        ErrorUI(state)
+        BackgroundImage(id = R.drawable.initial_affirmation_bg)
         LoadingIndicator(state = state, modifier = Modifier.align(Alignment.Center))
 
         Column(modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight(),
-            verticalArrangement = Arrangement.SpaceBetween
+            verticalArrangement = Arrangement.Top
         ) {
             HearderMenu()
             AffirmationStack(state)
-            BottomMenu()
         }
 
     }
+
 }
 
-@Composable
-fun ErrorUI(state: AffirmationStackState) {
-    if(state.error.isNotBlank()){
-        ErrorDialog(state.message)
-    }
-    if(state.message.isNotBlank()){
-        ErrorDialog(state.message)
-    }
-}
+
 
 @Composable
 fun LoadingIndicator(state: AffirmationStackState, modifier: Modifier) {
@@ -72,11 +66,20 @@ fun LoadingIndicator(state: AffirmationStackState, modifier: Modifier) {
 
 @Composable
 fun AffirmationStack(state: AffirmationStackState) {
-    if(state.affirmations.isNotEmpty()){
-        AffirmationItem(
-            affirmation = state.affirmations[0],
-        )
+    Box(modifier = Modifier
+        .fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        if(state.affirmations.isNotEmpty()){
+            AffirmationItem(
+                affirmation = state.affirmations[0],
+            )
+        }else{
+            AffirmationItemSingleton()
+        }
+
     }
+
 }
 
 @Composable
@@ -91,32 +94,31 @@ fun HearderMenu() {
 }
 
 @Composable
-fun BottomMenu(){
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
+fun RoundedIconButton(
+    onClick: (selected: Boolean) -> Unit,
+    @DrawableRes id: Int = R.drawable.ic_bookmark
+) {
+    var selected by remember { mutableStateOf(false) }
+
+    val buttonSize = 48.dp
+        Box(
         modifier = Modifier
-            .fillMaxWidth()
-            .height(80.dp)
-            .background(
-                color = Color.Gray,
-            )
+            .clip(RoundedCornerShape(16))
+            .width(buttonSize)
+            .height(buttonSize)
+            .background(color = IconButtonBackgroundColor)
+            .clickable {
+                selected = !selected
+                onClick(selected)
+                       },
+            contentAlignment = Alignment.Center,
     ) {
-        Row(modifier = Modifier
-            .fillMaxHeight()
-            .width(120.dp)
-            .background(color = Color.Cyan)) {
 
-        }
-        Row(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxHeight()
-                .fillMaxWidth()
-                .background(color = Color.Red)
-        ) {
-
-        }
-
+            Icon(
+                painter = painterResource(id = id),
+                contentDescription = null,
+                tint = Color.Unspecified
+            )
     }
 }
 

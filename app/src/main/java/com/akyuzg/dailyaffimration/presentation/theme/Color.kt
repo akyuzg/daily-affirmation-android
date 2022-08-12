@@ -4,6 +4,7 @@ import androidx.compose.ui.graphics.Color
 
 val White = Color(0xffffffff)
 val FacebookColor = Color(0xff0078FF)
+val IconButtonBackgroundColor = Color(0x55FFFFFF)
 
 
 val Green10 = Color(0xff003314)
