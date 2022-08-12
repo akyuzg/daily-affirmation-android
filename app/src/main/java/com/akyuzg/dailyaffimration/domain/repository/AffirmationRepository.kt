@@ -9,6 +9,10 @@ interface AffirmationRepository {
 
     suspend fun bookmark(affirmationId: Long): BaseResponse
 
+    suspend fun unbookmark(affirmationId: Long): BaseResponse
+
     suspend fun like(affirmationId: Long): BaseResponse
+
+    suspend fun unlike(affirmationId: Long): BaseResponse
 
 }

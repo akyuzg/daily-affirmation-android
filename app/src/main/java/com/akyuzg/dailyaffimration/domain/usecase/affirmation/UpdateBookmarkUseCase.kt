@@ -1,8 +1,7 @@
-package com.akyuzg.dailyaffimration.domain.usecase
+package com.akyuzg.dailyaffimration.domain.usecase.affirmation
 
 import com.akyuzg.dailyaffimration.common.Resource
-import com.akyuzg.dailyaffimration.data.network.model.toDomainModel
-import com.akyuzg.dailyaffimration.domain.model.Affirmation
+import com.akyuzg.dailyaffimration.data.network.response.BaseResponse
 import com.akyuzg.dailyaffimration.domain.repository.AffirmationRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -11,18 +10,17 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class GetDailyAffirmationsUseCase @Inject constructor(
+class UpdateBookmarkUseCase @Inject constructor(
     private val repository: AffirmationRepository,
 ) {
 
-    operator fun invoke(): Flow<Resource<List<Affirmation>>> = flow {
+    operator fun invoke(affirmationId: Long, bookmarked: Boolean): Flow<Resource<BaseResponse>> = flow {
         try{
             emit(Resource.Loading())
             delay(500)
-            val response = repository.getDailyAffirmations()
+            val response = repository.bookmark(affirmationId)
             if(response.ok){
-                val items = response.affirmations.map { it.toDomainModel() }
-                emit(Resource.Success(items))
+                emit(Resource.Success(response))
             }else{
                 response.message?.let { userMessage ->
                     emit(Resource.Message(userMessage))

@@ -18,7 +18,9 @@ import com.akyuzg.dailyaffirmation.R
 
 @Composable
 fun AffirmationItem(
-    affirmation: Affirmation
+    affirmation: Affirmation,
+    onLikeClicked: ((selected: Boolean) -> Unit)? = null,
+    onBookmarkClicked: ((selected: Boolean) -> Unit)? = null
 ) {
     Column(modifier = Modifier
         .fillMaxWidth()
@@ -42,12 +44,10 @@ fun AffirmationItem(
             )
         }
         ActionButtons(
-            onBookmarkClicked = { selected ->
-                
-            },
-            onLikeClicked = { selected ->
-
-            }
+            bookmarked = affirmation.bookmarked,
+            liked = affirmation.liked,
+            onBookmarkClicked = onBookmarkClicked,
+            onLikeClicked = onLikeClicked
         )
     }
 }
@@ -62,8 +62,10 @@ fun AffirmationItemSingleton(){
 
 @Composable
 fun ActionButtons(
-    onLikeClicked: (selected: Boolean) -> Unit,
-    onBookmarkClicked: (selected: Boolean) -> Unit
+    bookmarked: Boolean,
+    liked: Boolean,
+    onLikeClicked: ((selected: Boolean) -> Unit)? = null,
+    onBookmarkClicked: ((selected: Boolean) -> Unit)? = null
 ){
     val spaceX = 16.dp
     Row(
@@ -73,14 +75,17 @@ fun ActionButtons(
             .fillMaxHeight()
             .fillMaxWidth()
     ) {
+
         RoundedIconButton(
             onClick = onLikeClicked,
-            id = R.drawable.ic_heart
+            id = if(liked) R.drawable.ic_heart_filled else R.drawable.ic_heart_outlined,
+            selectedId = R.drawable.ic_heart_filled
         )
         Spacer(Modifier.width(spaceX))
         RoundedIconButton(
             onClick = onBookmarkClicked,
-            id = R.drawable.ic_bookmark
+            id = if(bookmarked) R.drawable.ic_bookmark_filled else R.drawable.ic_bookmark_outlined,
+            selectedId = R.drawable.ic_bookmark_filled
         )
     }
 }

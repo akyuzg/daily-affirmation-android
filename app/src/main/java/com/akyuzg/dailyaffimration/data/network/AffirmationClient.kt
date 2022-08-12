@@ -15,8 +15,16 @@ class AffirmationClient(
         return affirmationService.bookmark(affirmationId)
     }
 
+    suspend fun unbookmark(affirmationId: Long): BaseResponse {
+        return affirmationService.unbookmark(affirmationId)
+    }
+
     suspend fun like(affirmationId: Long): BaseResponse {
         return affirmationService.like(affirmationId)
+    }
+
+    suspend fun unlike(affirmationId: Long): BaseResponse {
+        return affirmationService.unlike(affirmationId)
     }
 
     companion object {

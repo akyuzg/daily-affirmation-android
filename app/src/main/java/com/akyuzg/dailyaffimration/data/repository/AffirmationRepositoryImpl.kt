@@ -21,8 +21,16 @@ class AffirmationRepositoryImpl @Inject constructor(
         return affirmationClient.bookmark(affirmationId)
     }
 
+    override suspend fun unbookmark(affirmationId: Long): BaseResponse {
+        return affirmationClient.unbookmark(affirmationId)
+    }
+
     override suspend fun like(affirmationId: Long): BaseResponse {
         return affirmationClient.like(affirmationId)
+    }
+
+    override suspend fun unlike(affirmationId: Long): BaseResponse {
+        return affirmationClient.unlike(affirmationId)
     }
 
 }

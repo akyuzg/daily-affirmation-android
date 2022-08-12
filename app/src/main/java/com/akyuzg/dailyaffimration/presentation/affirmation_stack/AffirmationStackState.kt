@@ -6,5 +6,6 @@ data class AffirmationStackState(
     val isLoading: Boolean = false,
     val affirmations: List<Affirmation> = emptyList(),
     val message: String = "",
-    val error: String = ""
+    val error: String = "",
+    val visibleIndex: Int = 0
 )

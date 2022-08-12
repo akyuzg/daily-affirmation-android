@@ -6,8 +6,7 @@ import com.akyuzg.dailyaffimration.data.network.AffirmationService
 import com.akyuzg.dailyaffimration.data.network.MainInterceptor
 import com.akyuzg.dailyaffimration.data.repository.AffirmationRepositoryImpl
 import com.akyuzg.dailyaffimration.domain.repository.AffirmationRepository
-import com.akyuzg.dailyaffimration.domain.usecase.GetDailyAffirmationsUseCase
-import com.akyuzg.dailyaffirmation.BuildConfig
+import com.akyuzg.dailyaffimration.domain.usecase.affirmation.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,7 +36,7 @@ object AppModule {
     private fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level =
-            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+            if (com.akyuzg.dailyaffirmation.BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         return httpLoggingInterceptor
     }
 
@@ -73,6 +72,31 @@ object AppModule {
     @Singleton
     fun provideDailyAffirmationUseCase(affirmationRepository: AffirmationRepository): GetDailyAffirmationsUseCase {
         return GetDailyAffirmationsUseCase(affirmationRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUpdateBookmarkUseCase(affirmationRepository: AffirmationRepository): UpdateBookmarkUseCase {
+        return UpdateBookmarkUseCase(affirmationRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUpdateLikeUseCase(affirmationRepository: AffirmationRepository): UpdateLikeUseCase {
+        return UpdateLikeUseCase(affirmationRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAffirmationUseCases(
+        updateLikeUseCase: UpdateLikeUseCase,
+        updateBookmarkUseCase: UpdateBookmarkUseCase
+
+    ): AffirmationUseCases {
+        return AffirmationUseCases(
+            updateLike = updateLikeUseCase,
+            updateBookmark = updateBookmarkUseCase,
+        )
     }
 
 }

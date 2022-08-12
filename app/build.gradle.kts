@@ -38,7 +38,7 @@ android {
         jvmTarget = Versions.jvmTarget
     }
     composeOptions {
-        kotlinCompilerExtensionVersion =  "1.2.0"
+        kotlinCompilerExtensionVersion =  "1.3.0"
     }
 }
 
@@ -52,8 +52,8 @@ dependencies {
 
     // Dependency Injection
     implementation(Dependencies.DaggerHilt.core)
-    implementation("androidx.compose.ui:ui-tooling-preview:1.1.1")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.1.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:${Versions.ArchitectureComponents.compose}")
+    debugImplementation("androidx.compose.ui:ui-tooling:${Versions.ArchitectureComponents.compose}")
     kapt(Dependencies.DaggerHilt.compiler)
     implementation(Dependencies.javaInject)
 
@@ -78,7 +78,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
-
+    implementation("com.google.accompanist:accompanist-pager:0.26.1-alpha")
 
     // architecture  components
     implementation(Dependencies.Architecture.viewModel)
