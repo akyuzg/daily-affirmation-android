@@ -77,10 +77,14 @@ dependencies {
     implementation("com.google.dagger:hilt-android:1.0.0")
     kapt("com.google.dagger:hilt-android-compiler:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-
     implementation("com.google.accompanist:accompanist-pager:0.26.1-alpha")
 
-    // architecture  components
+    // Room
+    implementation(Dependencies.Room.runtime)
+    implementation(Dependencies.Room.ktx)
+    kapt(Dependencies.Room.compiler)
+
+    // architecture components
     implementation(Dependencies.Architecture.viewModel)
     implementation(Dependencies.Architecture.runtimeKtx)
     implementation(Dependencies.Architecture.lifecycleCommon)

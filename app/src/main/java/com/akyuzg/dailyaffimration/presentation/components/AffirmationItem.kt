@@ -44,8 +44,8 @@ fun AffirmationItem(
             )
         }
         ActionButtons(
-            bookmarked = affirmation.bookmarked,
-            liked = affirmation.liked,
+            bookmarked = false,
+            liked = false,
             onBookmarkClicked = onBookmarkClicked,
             onLikeClicked = onLikeClicked
         )

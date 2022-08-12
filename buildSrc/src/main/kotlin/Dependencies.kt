@@ -14,6 +14,11 @@ object Dependencies {
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
+    object Room {
+        const val runtime = "androidx.room:room-runtime:${Versions.room}"
+        const val ktx = "androidx.room:room-ktx:${Versions.room}"
+        const val compiler = "androidx.room:room-compiler:${Versions.room}"
+    }
 
     object Navigation {
         const val fragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.ArchitectureComponents.navigation}"

@@ -37,7 +37,7 @@ fun getVisibleAffirmation(state: AffirmationStackState): Affirmation{
 @Composable
 fun MainScreen(
     navController: NavController,
-    vm: MainScreenViewModel = hiltViewModel()
+    vm: AffirmationStackViewModel = hiltViewModel()
 ) {
     val state = vm.state.value
 
@@ -93,7 +93,7 @@ fun LoadingIndicator(state: AffirmationStackState) {
 @Composable
 fun AffirmationStack(
     state: AffirmationStackState,
-    vm: MainScreenViewModel
+    vm: AffirmationStackViewModel
 ) {
 
     Box(modifier = Modifier
@@ -106,12 +106,10 @@ fun AffirmationStack(
                 AffirmationItem(
                     affirmation = affirmation,
                     onLikeClicked = { selected ->
-                        affirmation.liked = selected
-                        vm.onEvent(AffirmationEvents.LikeChanged(affirmation))
+                        vm.onEvent(AffirmationEvents.LikeChanged(affirmation, selected))
                     },
                     onBookmarkClicked = { selected ->
-                        affirmation.bookmarked = selected
-                        vm.onEvent(AffirmationEvents.BookmarkChanged(affirmation))
+                        vm.onEvent(AffirmationEvents.BookmarkChanged(affirmation, selected))
                     }
                 )
             }

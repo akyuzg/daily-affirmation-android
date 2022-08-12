@@ -17,6 +17,7 @@ object Versions {
     const val okHttp = "4.7.2"
     const val retrofit = "2.9.0"
     const val daggerHilt = "2.42"
+    const val room = "2.4.2"
     const val glide = "4.13.0"
 
     object App {

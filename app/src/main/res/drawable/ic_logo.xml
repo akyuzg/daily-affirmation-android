@@ -5,8 +5,8 @@
    <group
        android:pivotX="32"
        android:pivotY="32"
-       android:scaleX="0.5"
-       android:scaleY="0.5"
+       android:scaleX="0.4"
+       android:scaleY="0.4"
        >
        <path android:pathData="M14,0L52,0A14,14 0,0 1,66 14L66,52A14,14 0,0 1,52 66L14,66A14,14 0,0 1,0 52L0,14A14,14 0,0 1,14 0z">
            <aapt:attr name="android:fillColor">

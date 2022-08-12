@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
-class MainScreenViewModel @Inject constructor(
+class AffirmationStackViewModel @Inject constructor(
     private val getDailyAffirmationsUseCase: GetDailyAffirmationsUseCase,
     private val affirmationUseCases: AffirmationUseCases,
 
