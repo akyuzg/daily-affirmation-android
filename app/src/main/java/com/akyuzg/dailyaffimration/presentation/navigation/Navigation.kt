@@ -7,8 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.akyuzg.dailyaffimration.presentation.Screen
-import com.akyuzg.dailyaffimration.presentation.affirmation_stack.MainScreen
-import com.akyuzg.dailyaffimration.presentation.loginregister.LoginRegisterScreen
+import com.akyuzg.dailyaffimration.presentation.affirmations.AffirmationsScreen
 
 @Composable
 fun AppNavGraph() {
@@ -18,7 +17,7 @@ fun AppNavGraph() {
     NavHost(navController = navController, startDestination = Screen.LoginRegister.route) {
         composable(route = Screen.LoginRegister.route) {
             //LoginRegisterScreen(navController = navController)
-            MainScreen(navController = navController)
+            AffirmationsScreen(navController = navController)
         }
         composable(
             route = Screen.DetailScreen.route + "/{name}",

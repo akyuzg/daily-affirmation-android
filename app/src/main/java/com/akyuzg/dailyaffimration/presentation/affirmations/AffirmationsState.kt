@@ -1,8 +1,8 @@
-package com.akyuzg.dailyaffimration.presentation.affirmation_stack
+package com.akyuzg.dailyaffimration.presentation.affirmations
 
 import com.akyuzg.dailyaffimration.domain.model.Affirmation
 
-data class AffirmationStackState(
+data class AffirmationsState(
     val isLoading: Boolean = false,
     val affirmations: List<Affirmation> = emptyList(),
     val message: String = "",

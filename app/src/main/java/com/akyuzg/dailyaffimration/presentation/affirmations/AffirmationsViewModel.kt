@@ -1,4 +1,4 @@
-package com.akyuzg.dailyaffimration.presentation.affirmation_stack
+package com.akyuzg.dailyaffimration.presentation.affirmations
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -13,23 +13,23 @@ import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
-class AffirmationStackViewModel @Inject constructor(
+class AffirmationsViewModel @Inject constructor(
     private val getDailyAffirmationsUseCase: GetDailyAffirmationsUseCase,
     private val affirmationUseCases: AffirmationUseCases,
 
     ): ViewModel() {
 
-    private val _state = mutableStateOf(AffirmationStackState())
-    val state: State<AffirmationStackState> = _state
+    private val _state = mutableStateOf(AffirmationsState())
+    val state: State<AffirmationsState> = _state
 
 
-    fun onEvent(event: AffirmationEvents){
+    fun onEvent(event: AffirmationEvent){
         when(event) {
-            is AffirmationEvents.BookmarkChanged -> {
-                affirmationUseCases.updateBookmark(event.affirmation.id, event.affirmation.bookmarked)
+            is AffirmationEvent.BookmarkChanged -> {
+                affirmationUseCases.updateBookmark(event.affirmation.id, event.selected)
             }
-            is AffirmationEvents.LikeChanged -> {
-                affirmationUseCases.updateLike(event.affirmation.id, event.affirmation.liked)
+            is AffirmationEvent.LikeChanged -> {
+                affirmationUseCases.updateLike(event.affirmation.id, event.selected)
             }
         }
     }
@@ -43,18 +43,18 @@ class AffirmationStackViewModel @Inject constructor(
         getDailyAffirmationsUseCase().onEach { result->
             when(result){
                 is Resource.Success -> {
-                    _state.value = AffirmationStackState(affirmations = result.data ?: emptyList())
+                    _state.value = AffirmationsState(affirmations = result.data ?: emptyList())
                 }
                 is Resource.Loading -> {
-                    _state.value = AffirmationStackState(isLoading = true)
+                    _state.value = AffirmationsState(isLoading = true)
                 }
                 is Resource.Error -> {
-                    _state.value = AffirmationStackState(
+                    _state.value = AffirmationsState(
                         error = result.message ?: "An unexpected error occured.."
                     )
                 }
                 is Resource.Message -> {
-                    _state.value = AffirmationStackState(message = result.message ?: "Unexpected message")
+                    _state.value = AffirmationsState(message = result.message ?: "Unexpected message")
                 }
             }
 
