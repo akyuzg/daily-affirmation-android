@@ -10,6 +10,10 @@ import retrofit2.http.DELETE
 
 @Dao
 interface AffirmationDao {
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(affirmation: Affirmation)
+
     /*
       @Insert(onConflict = OnConflictStrategy.REPLACE)
       fun insert(affirmation: Affirmation)
