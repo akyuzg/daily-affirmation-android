@@ -8,3 +8,10 @@ data class DailyAffirmationResponse(
     val message: String?,
     @SerializedName(value = "daily_affirmations") val affirmations: List<Affirmation>
 )
+
+fun DailyAffirmationResponse.toBaseResponse(): BaseResponse {
+    return BaseResponse(
+        ok = ok,
+        message = message
+    )
+}

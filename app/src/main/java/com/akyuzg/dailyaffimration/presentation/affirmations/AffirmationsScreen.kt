@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.akyuzg.dailyaffimration.domain.model.Affirmation
 import com.akyuzg.dailyaffimration.presentation.components.Page
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -24,7 +25,14 @@ fun AffirmationsScreen(
         error = state.error
     ){
         HeadMenu()
-        AffirmationPager(state, vm)
+        AffirmationPager(state, vm,
+            onBookmarkClicked = { affirmation ->
+                vm.onEvent(AffirmationEvent.BookmarkChanged(affirmation))
+            },
+            onLikeClicked = { affirmation ->
+                vm.onEvent(AffirmationEvent.LikeChanged(affirmation))
+            }
+        )
     }
 }
 
@@ -35,27 +43,32 @@ fun AffirmationsScreen(
 @Composable
 fun AffirmationPager(
     state: AffirmationsState,
-    vm: AffirmationsViewModel
+    vm: AffirmationsViewModel,
+    onLikeClicked: ((affirmation: Affirmation) -> Unit)? = null,
+    onBookmarkClicked: ((affirmation: Affirmation) -> Unit)? = null,
 ) {
     if(state.affirmations.isNotEmpty()){
         HorizontalPager(
-            modifier = Modifier
-                .fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             count = state.affirmations.size
         ) { page ->
             val affirmation = state.affirmations[page]
             AffirmationView(
                 affirmation = affirmation,
                 onLikeClicked = { selected ->
-                    vm.onEvent(AffirmationEvent.LikeChanged(affirmation, selected))
+                    affirmation.liked = selected
+                    onLikeClicked?.apply {
+                        onLikeClicked(affirmation)
+                    }
                 },
                 onBookmarkClicked = { selected ->
-                    vm.onEvent(AffirmationEvent.BookmarkChanged(affirmation, selected))
+                    affirmation.bookmarked = selected
+                    onBookmarkClicked?.apply {
+                        onBookmarkClicked(affirmation)
+                    }
                 }
             )
         }
-    }else{
-        AffirmationViewSingleton()
     }
 }
 

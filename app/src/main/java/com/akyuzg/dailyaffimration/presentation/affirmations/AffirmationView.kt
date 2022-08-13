@@ -52,18 +52,11 @@ fun AffirmationView(
             )
         }
         ActionButtons(
-            bookmarked = false,
-            liked = false,
+            bookmarked = affirmation.bookmarked,
+            liked = affirmation.liked,
             onBookmarkClicked = onBookmarkClicked,
             onLikeClicked = onLikeClicked
         )
-    }
-}
-@Composable
-fun AffirmationViewSingleton(){
-    Box(modifier = Modifier
-        .fillMaxWidth()
-        .height(300.dp + 48.dp)) {
     }
 }
 
@@ -86,14 +79,16 @@ fun ActionButtons(
 
         RoundedIconButton(
             onClick = onLikeClicked,
-            id = if(liked) R.drawable.ic_heart_filled else R.drawable.ic_heart_outlined,
-            selectedId = R.drawable.ic_heart_filled
+            id = R.drawable.ic_heart_outlined,
+            selectedId = R.drawable.ic_heart_filled,
+            selected = liked
         )
         Spacer(Modifier.width(spaceX))
         RoundedIconButton(
             onClick = onBookmarkClicked,
-            id = if(bookmarked) R.drawable.ic_bookmark_filled else R.drawable.ic_bookmark_outlined,
-            selectedId = R.drawable.ic_bookmark_filled
+            id = R.drawable.ic_bookmark_outlined,
+            selectedId = R.drawable.ic_bookmark_filled,
+            selected = bookmarked
         )
     }
 }
@@ -103,9 +98,10 @@ fun ActionButtons(
 fun RoundedIconButton(
     onClick: ((selected: Boolean) -> Unit)? = null,
     @DrawableRes id: Int = R.drawable.ic_bookmark_outlined,
-    @DrawableRes selectedId: Int = R.drawable.ic_bookmark_filled
+    @DrawableRes selectedId: Int = R.drawable.ic_bookmark_filled,
+    selected: Boolean
 ) {
-    var selected by remember { mutableStateOf(false) }
+    var selectedState by remember { mutableStateOf(selected) }
 
     val buttonSize = 48.dp
     Box(
@@ -115,16 +111,16 @@ fun RoundedIconButton(
             .height(buttonSize)
             .background(color = IconButtonBackgroundColor)
             .clickable {
-                selected = !selected
+                selectedState = !selectedState
                 onClick?.let { callback ->
-                    callback(selected)
+                    callback(selectedState)
                 }
             },
         contentAlignment = Alignment.Center,
     ) {
 
         Icon(
-            painter = painterResource(id = if(selected) selectedId else id),
+            painter = painterResource(id = if(selectedState) selectedId else id),
             contentDescription = null,
             tint = Color.Unspecified
         )

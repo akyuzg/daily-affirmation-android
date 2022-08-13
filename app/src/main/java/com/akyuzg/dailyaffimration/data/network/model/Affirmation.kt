@@ -12,7 +12,7 @@ data class Affirmation(
     val categoryId: Int
 )
 
-fun Affirmation.toDomainModel() = com.akyuzg.dailyaffimration.domain.model.Affirmation(
+fun Affirmation.toEntity() = com.akyuzg.dailyaffimration.data.database.model.Affirmation(
     id = id,
     text = text,
     categoryId = categoryId

@@ -1,6 +1,9 @@
 package com.akyuzg.dailyaffimration.domain.usecase.affirmation
 
-data class AffirmationUseCases(
+import javax.inject.Inject
+
+data class AffirmationUseCases @Inject constructor(
     val updateLike: UpdateLikeUseCase,
     val updateBookmark: UpdateBookmarkUseCase,
+    val getDailyAffirmations: GetDailyAffirmationsUseCase
 )

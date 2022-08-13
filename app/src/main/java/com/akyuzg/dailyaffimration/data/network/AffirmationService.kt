@@ -18,7 +18,7 @@ interface AffirmationService {
     suspend fun bookmark(@Path("id") affirmationId: Long): BaseResponse
 
     @DELETE("/api/affirmations/{id}/unbookmark")
-    suspend fun unbookmark(@Path("id") affirmationId: Long): BaseResponse
+    suspend fun unBookmark(@Path("id") affirmationId: Long): BaseResponse
 
 
     @POST("/api/affirmations/{id}/like")
@@ -26,6 +26,6 @@ interface AffirmationService {
 
 
     @DELETE("/api/affirmations/{id}/unlike")
-    suspend fun unlike(@Path("id") affirmationId: Long): BaseResponse
+    suspend fun unLike(@Path("id") affirmationId: Long): BaseResponse
 
 }

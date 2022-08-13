@@ -1,6 +1,8 @@
 package com.akyuzg.dailyaffimration.di
 
 import com.akyuzg.dailyaffimration.common.Constants
+import com.akyuzg.dailyaffimration.data.database.AffirmationDao
+import com.akyuzg.dailyaffimration.data.database.AffirmationDatabase
 import com.akyuzg.dailyaffimration.data.network.AffirmationClient
 import com.akyuzg.dailyaffimration.data.network.AffirmationService
 import com.akyuzg.dailyaffimration.data.network.MainInterceptor
@@ -53,20 +55,17 @@ object AppModule {
             .create(AffirmationService::class.java)
     }
 
-
     @Provides
     @Singleton
-    fun provideAffirmationRepository(affirmationClient: AffirmationClient): AffirmationRepository {
-        return AffirmationRepositoryImpl(affirmationClient)
+    fun provideAffirmationRepository(affirmationClient: AffirmationClient, affirmationDao: AffirmationDao): AffirmationRepository {
+        return AffirmationRepositoryImpl(affirmationClient, affirmationDao)
     }
-
 
     @Provides
     @Singleton
     fun provideAffirmationClient(service: AffirmationService): AffirmationClient {
         return AffirmationClient(service)
     }
-
 
     @Provides
     @Singleton
@@ -89,14 +88,16 @@ object AppModule {
     @Provides
     @Singleton
     fun provideAffirmationUseCases(
+        updateBookmarkUseCase: UpdateBookmarkUseCase,
         updateLikeUseCase: UpdateLikeUseCase,
-        updateBookmarkUseCase: UpdateBookmarkUseCase
-
+        getDailyAffirmationsUseCase: GetDailyAffirmationsUseCase
     ): AffirmationUseCases {
         return AffirmationUseCases(
-            updateLike = updateLikeUseCase,
             updateBookmark = updateBookmarkUseCase,
+            updateLike = updateLikeUseCase,
+            getDailyAffirmations = getDailyAffirmationsUseCase
         )
     }
+
 
 }

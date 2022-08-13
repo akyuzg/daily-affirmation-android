@@ -2,6 +2,7 @@ package com.akyuzg.dailyaffimration.domain.usecase.affirmation
 
 import com.akyuzg.dailyaffimration.common.Resource
 import com.akyuzg.dailyaffimration.data.network.response.BaseResponse
+import com.akyuzg.dailyaffimration.domain.model.Affirmation
 import com.akyuzg.dailyaffimration.domain.repository.AffirmationRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -14,22 +15,18 @@ class UpdateBookmarkUseCase @Inject constructor(
     private val repository: AffirmationRepository,
 ) {
 
-    operator fun invoke(affirmationId: Long, bookmarked: Boolean): Flow<Resource<BaseResponse>> = flow {
+    operator fun invoke(affirmation: Affirmation): Flow<Resource<BaseResponse>> = flow {
         try{
             emit(Resource.Loading())
             delay(500)
-            val response = repository.bookmark(affirmationId)
-            if(response.ok){
-                emit(Resource.Success(response))
-            }else{
-                response.message?.let { userMessage ->
-                    emit(Resource.Message(userMessage))
-                }
-            }
-        }catch (e: HttpException){
-            emit(Resource.Error(e.localizedMessage?: "An unexpected error occured"))
-        }catch (e: IOException){
-            emit(Resource.Error("Couldn't reach server. Check your internet connection."))
+            val response = if(affirmation.bookmarked)
+                repository.bookmark(affirmation.id)
+            else
+                repository.unBookmark(affirmation.id)
+
+            emit(Resource.Success(response))
+        }catch (e: Exception){
+            emit(Resource.Error(e.message ?: "Unknown error." ))
         }
 
     }

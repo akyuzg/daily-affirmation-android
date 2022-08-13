@@ -7,5 +7,5 @@ data class AffirmationsState(
     val affirmations: List<Affirmation> = emptyList(),
     val message: String = "",
     val error: String = "",
-    val visibleIndex: Int = 0
+    val visibleIndex: Int = 0,
 )
