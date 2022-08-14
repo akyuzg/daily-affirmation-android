@@ -27,14 +27,6 @@ class AffirmationRepositoryImpl @Inject constructor(
         return@withContext affirmationDao.getAllAffirmationsAndData()
     }
 
-    override suspend fun getLikes(): List<Long> = withContext(Dispatchers.IO) {
-        return@withContext affirmationDao.getLikes()
-    }
-
-    override suspend fun getBookmarks(): List<Long> = withContext(Dispatchers.IO) {
-        return@withContext affirmationDao.getBookmarks()
-    }
-
     override suspend fun getDailyAffirmations(): DailyAffirmationResponse {
         return affirmationClient.getDailyAffirmations()
     }

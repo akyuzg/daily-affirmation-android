@@ -11,10 +11,6 @@ interface AffirmationRepository {
 
     suspend fun getAffirmationsAndData(): List<AffirmationAndData>
 
-    suspend fun getLikes(): List<Long>
-
-    suspend fun getBookmarks(): List<Long>
-
     suspend fun getDailyAffirmations(): DailyAffirmationResponse
 
     suspend fun bookmark(affirmationId: Long): BaseResponse

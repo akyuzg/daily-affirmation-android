@@ -17,7 +17,6 @@ class GetDailyAffirmationsUseCase @Inject constructor(
     operator fun invoke(): Flow<Resource<List<Affirmation>>> = flow {
         try{
             emit(Resource.Loading())
-            delay(500)
 
             val response = repository.getDailyAffirmations()
             val entities = response.affirmations.map { it.toEntity() }
