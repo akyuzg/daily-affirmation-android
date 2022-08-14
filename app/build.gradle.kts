@@ -78,6 +78,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation("com.google.accompanist:accompanist-pager:0.26.1-alpha")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.17.0")
 
     // Room
     implementation(Dependencies.Room.runtime)
