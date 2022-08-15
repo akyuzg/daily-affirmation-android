@@ -1,6 +1,8 @@
 # Daily Affirmation (IN PROGRESS)
- An Android app written in Kotlin that demonstrates a clean architecture with MVVM using Jetpack Compose
+ An Android app written in Kotlin that demonstrates a clean architecture with MVVM using Jetpack Compose.
  It aims to encourage users to make affirmations on a daily basis.
+
+Gradle Kotlin DSL used
  
  ##### Android Jetpack Components used:
 - ViewModel 
