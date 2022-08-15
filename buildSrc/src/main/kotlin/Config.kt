@@ -3,8 +3,24 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getValue
 import org.gradle.kotlin.dsl.provideDelegate
 
+fun Project.importArchitectureDependencies(){
+    dependencies {
+        val implementation by configurations
 
-fun Project.importNetworkDepencencies() {
+        implementation(Dependencies.Architecture.viewModel)
+        implementation(Dependencies.Architecture.runtimeKtx)
+        implementation(Dependencies.Architecture.lifecycleCommon)
+        implementation(Dependencies.Architecture.livedata)
+        implementation(Dependencies.Architecture.lifecycleCompiler)
+        implementation(Dependencies.Architecture.constraintLayout)
+        implementation(Dependencies.material3)
+        implementation(Dependencies.material3WindowSizeClass)
+        implementation(Dependencies.Accompanist.pager)
+        //implementation(Dependencies.Accompanist.systemUiController)
+    }
+}
+
+fun Project.importNetworkDependencies() {
     dependencies {
         val implementation by configurations
 
@@ -38,21 +54,6 @@ fun Project.importCommonDependencies() {
         implementation(Dependencies.Architecture.multidex)
     }
 }
-
-
-fun Project.importTestDependencies(){
-    dependencies {
-        val testImplementation by configurations
-        val androidTestImplementation by configurations
-
-        testImplementation(Dependencies.Test.junit)
-        androidTestImplementation(Dependencies.Test.extJunit)
-        androidTestImplementation(Dependencies.Test.espressoCore)
-        androidTestImplementation(Dependencies.Test.coroutines)
-        androidTestImplementation(Dependencies.Test.compose)
-    }
-}
-
 
 fun Project.importComposeDependencies(){
     dependencies {

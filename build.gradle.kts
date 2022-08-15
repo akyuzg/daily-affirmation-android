@@ -4,7 +4,7 @@ buildscript {
         classpath(Dependencies.GradlePlugins.androidGradle)
         classpath(Dependencies.GradlePlugins.navigation)
         classpath(Dependencies.GradlePlugins.daggerHilt)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0")
+        classpath(Dependencies.GradlePlugins.kotlinGradle)
     }
 }
 

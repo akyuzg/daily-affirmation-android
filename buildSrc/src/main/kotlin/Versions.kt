@@ -6,22 +6,26 @@ object Versions {
 
     const val applicationAndLibrary ="7.2.1"
     const val jvmTarget = "1.8"
-    const val composeCompiler = "1.2.0"
 
 
     const val kotlin = "1.7.10"
-    const val material = "1.6.0"
     const val material3 = "1.0.0-alpha12"
     const val javaInject = "1"
     const val gson = "2.8.6"
     const val okHttp = "4.7.2"
     const val retrofit = "2.9.0"
     const val daggerHilt = "2.42"
+    const val hiltNavigation = "1.0.0"
     const val room = "2.4.2"
     const val glide = "4.13.0"
 
+    object Accompanist {
+        const val pager = "0.26.1-alpha"
+        const val systemUiController = "0.17.0"
+    }
+
     object App {
-        const val id = "com.akyuzg.dailyaffimation"
+        const val id = "com.akyuzg.dailyaffirmation"
         const val versionCode = 1
         const val versionName = "1.0.0"
     }
@@ -36,7 +40,6 @@ object Versions {
         const val activityCompose = "1.4.0"
         const val composeViewModel = "2.4.1"
         const val navigation = "2.4.2"
-        const val splashScreen = "1.0.0-beta01"
 
         const val appCompat = "1.4.1"
         const val core = "1.7.0"

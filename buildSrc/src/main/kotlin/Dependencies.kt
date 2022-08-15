@@ -1,9 +1,7 @@
 object Dependencies {
 
-    const val material = "com.google.android.material:material:${Versions.material}"
     const val material3 = "androidx.compose.material3:material3:${Versions.material3}"
     const val material3WindowSizeClass = "androidx.compose.material3:material3-window-size-class:${Versions.material3}"
-
 
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
@@ -13,6 +11,12 @@ object Dependencies {
 
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+
+
+    object Accompanist {
+        const val pager = "com.google.accompanist:accompanist-pager:${Versions.Accompanist.pager}"
+        const val systemUiController = "com.google.accompanist:accompanist-systemuicontroller:${Versions.Accompanist.systemUiController}}"
+    }
 
     object Room {
         const val runtime = "androidx.room:room-runtime:${Versions.room}"
@@ -34,6 +38,7 @@ object Dependencies {
     object DaggerHilt {
         const val core = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
         const val compiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
+        const val navigation = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigation}"
     }
 
     object Compose {
@@ -42,7 +47,6 @@ object Dependencies {
         const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.ArchitectureComponents.compose}"
         const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.ArchitectureComponents.compose}"
         const val foundation = "androidx.compose.foundation:foundation:${Versions.ArchitectureComponents.compose}"
-        const val material = "androidx.compose.material:material:${Versions.ArchitectureComponents.compose}"
         const val materialIconsCore = "androidx.compose.material:material-icons-core:${Versions.ArchitectureComponents.compose}"
         const val materialIconsExtended = "androidx.compose.material:material-icons-extended:${Versions.ArchitectureComponents.compose}"
 
@@ -76,6 +80,7 @@ object Dependencies {
         const val androidGradle = "com.android.tools.build:gradle:${Versions.androidGradle}"
         const val navigation = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.ArchitectureComponents.navigation}"
         const val daggerHilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.daggerHilt}"
+        const val kotlinGradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     }
 
     object Test {
