@@ -12,3 +12,4 @@ Gradle Kotlin DSL used.
 - [Flow](https://developer.android.com/kotlin/flow)
 - [Retrofit](https://square.github.io/retrofit/)
 - [OkHttp](https://square.github.io/okhttp/)
+- [Navigation](https://developer.android.com/guide/navigation/navigation-getting-started)
