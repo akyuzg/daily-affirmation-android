@@ -22,8 +22,8 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.requestFeature(Window.FEATURE_ACTION_BAR);
-        actionBar?.hide();
+        window.requestFeature(Window.FEATURE_ACTION_BAR)
+        actionBar?.hide()
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,

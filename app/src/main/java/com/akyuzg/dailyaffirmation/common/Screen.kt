@@ -1,9 +1,8 @@
-package com.akyuzg.dailyaffirmation.presentation
+package com.akyuzg.dailyaffirmation.common
 
 sealed class Screen(val route: String) {
-    object LoginRegister : Screen("loginRegister_screen")
-    object MainScreen : Screen("main_screen")
-    object DetailScreen : Screen("detail_screen")
+    object AuthScreen : Screen("auth_screen")
+    object AffirmationsScreen : Screen("affirmations_screen")
 
     fun withArgs(vararg args: String): String {
         return buildString {

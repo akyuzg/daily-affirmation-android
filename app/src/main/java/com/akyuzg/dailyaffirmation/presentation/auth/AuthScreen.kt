@@ -1,4 +1,4 @@
-package com.akyuzg.dailyaffirmation.presentation.loginregister
+package com.akyuzg.dailyaffirmation.presentation.auth
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
@@ -10,13 +10,13 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.akyuzg.dailyaffirmation.presentation.components.*
-import com.akyuzg.dailyaffirmation.presentation.loginregister.components.FacebookLoginButton
-import com.akyuzg.dailyaffirmation.presentation.loginregister.components.GoogleLoginButton
+import com.akyuzg.dailyaffirmation.presentation.auth.components.FacebookLoginButton
+import com.akyuzg.dailyaffirmation.presentation.auth.components.GoogleLoginButton
 import com.akyuzg.dailyaffirmation.presentation.theme.White
 import com.akyuzg.dailyaffirmation.R
 
 @Composable
-fun LoginRegisterScreen(navController: NavController) {
+fun AuthScreen(navController: NavController) {
     val padding = 10.dp
     Box(
         modifier = Modifier
@@ -50,5 +50,5 @@ fun LoginRegisterScreen(navController: NavController) {
 @Preview(showBackground = true)
 @Composable
 fun LoginRegisterScreenPreview() {
-    LoginRegisterScreen(rememberNavController())
+    AuthScreen(rememberNavController())
 }

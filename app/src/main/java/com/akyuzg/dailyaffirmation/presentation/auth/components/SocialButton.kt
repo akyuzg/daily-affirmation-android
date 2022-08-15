@@ -1,4 +1,4 @@
-package com.akyuzg.dailyaffirmation.presentation.loginregister.components
+package com.akyuzg.dailyaffirmation.presentation.auth.components
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
