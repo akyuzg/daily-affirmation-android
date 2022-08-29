@@ -1,5 +1,6 @@
 package com.akyuzg.dailyaffirmation.presentation.components
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -15,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.akyuzg.dailyaffirmation.R
-import com.akyuzg.dailyaffirmation.ui.theme.MenuIconBackgroundColor
+import com.akyuzg.dailyaffirmation.ui.theme.*
 
 val MenuItemSpace = 12.dp
 
@@ -28,7 +29,7 @@ fun MenuSeparator(){
     ) {
         Box(modifier = Modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.surfaceVariant)
+            .background(MenuLineColor)
             .height(1.dp)
         )
     }
@@ -47,13 +48,17 @@ fun MenuContainer(
     ) {
         content()
     }
+    ScreenSpacer()
 }
 
 
 
 @Composable
-fun MenuItem(
-    text: String
+fun MenuItemView(
+    text: String,
+    @DrawableRes iconId: Int = R.drawable.ic_right_arrow,
+    iconColor: Color = MenuIconColor,
+    iconBackgroundColor: Color = MenuIconBackgroundColor
 ){
     Row(
         modifier = Modifier
@@ -66,13 +71,13 @@ fun MenuItem(
             modifier = Modifier
                 .size(40.dp)
                 .clip(MaterialTheme.shapes.medium)
-                .background(MenuIconBackgroundColor),
+                .background(iconBackgroundColor),
             contentAlignment = Alignment.Center
         ) {
             Icon(
-                painter = painterResource(id = R.drawable.ic_right_arrow),
+                painter = painterResource(iconId),
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                tint = iconColor,
                 modifier = Modifier.size(24.dp)
             )
         }
@@ -81,13 +86,14 @@ fun MenuItem(
             modifier = Modifier
                 .padding(vertical = 8.dp, horizontal = 8.dp)
                 .width(IntrinsicSize.Max)
-                .weight(1f)
+                .weight(1f),
+            color = MenuTextColor
 
         )
         Icon(
             painter = painterResource(id = R.drawable.ic_right_arrow),
             contentDescription = null,
-            tint = Color.Unspecified,
+            tint = MenuArrowColor,
         )
 
     }

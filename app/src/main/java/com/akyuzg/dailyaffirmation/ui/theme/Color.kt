@@ -5,6 +5,11 @@ import androidx.compose.ui.graphics.Color
 
 
 val White = Color(0xffffffff)
+val Orange = Color(0xFFF2994A)
+val OrangeLight = Color(0xFFFFE6BD)
+
+
+
 val FacebookColor = Color(0xff0078FF)
 val IconButtonBackgroundColor = Color(0x55FFFFFF)
 
@@ -13,6 +18,14 @@ val ScreenBackgroundColor = Color(0xFFF4F2F5)
 val purpleGradientStart = Color(0xFFA383FF)
 val purpleGradientEnd = Color(0xFFD5A0FF)
 val MenuIconBackgroundColor = Color(0xFFFFDBFF)
+val MenuIconColor = Color(0xFF9B51E0)
+val MenuArrowColor = Color(0xFFE3E5E5)
+val MenuLineColor = Color(0xFFF2F4F5)
+val MenuTextColor = Color(0xFF303437)
+
+val MenuIconGray = Color(0xFF72777A)
+val MenuIconBgGray = Color(0xFFF0F0F0)
+
 
 
 val md_theme_light_primary = Color(0xFF6847C0)

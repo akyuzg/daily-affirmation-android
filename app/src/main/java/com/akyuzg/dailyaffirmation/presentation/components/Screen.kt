@@ -23,7 +23,7 @@ fun Screen(
     Column(modifier = Modifier
         .background(ScreenBackgroundColor)
         .fillMaxSize()
-        .padding(horizontal = dimensionResource(id = R.dimen.largePadding))
+        .padding(horizontal = dimensionResource(id = R.dimen.mediumPadding))
 
     ) {
         Spacer(spacerModifier)

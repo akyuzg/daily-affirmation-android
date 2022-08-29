@@ -10,6 +10,11 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.akyuzg.dailyaffirmation.presentation.components.*
 import com.akyuzg.dailyaffirmation.presentation.profile.components.StartPremiumView
+import com.akyuzg.dailyaffirmation.R
+import com.akyuzg.dailyaffirmation.ui.theme.MenuIconBgGray
+import com.akyuzg.dailyaffirmation.ui.theme.MenuIconGray
+import com.akyuzg.dailyaffirmation.ui.theme.Orange
+import com.akyuzg.dailyaffirmation.ui.theme.OrangeLight
 
 @Composable
 fun ProfileScreen(navController: NavController) {
@@ -21,29 +26,24 @@ fun ProfileScreen(navController: NavController) {
             .fillMaxWidth()
             .verticalScroll(rememberScrollState())
         ) {
-
             StartPremiumView()
-
-            MenuContainer {
-                MenuItem(text = "Favorilerim")
-                MenuSeparator()
-                MenuItem(text = "Koleksiyonlarım")
-                MenuSeparator()
-                MenuItem(text = "Olumlamalarım")
-            }
-
             ScreenSpacer()
-
             MenuContainer {
-                MenuItem(text = "Hatırlatıcılar")
-            }
-
-            ScreenSpacer()
-
-            MenuContainer {
-                MenuItem(text = "Kategoriler")
+                MenuItemView(text = "Favorilerim", iconId = R.drawable.ic_heart_outlined)
                 MenuSeparator()
-                MenuItem(text = "Arkaplan")
+                MenuItemView(text = "Koleksiyonlarım",  iconId = R.drawable.ic_bookmark_outlined)
+                MenuSeparator()
+                MenuItemView(text = "Olumlamalarım", iconId = R.drawable.ic_smile_outlined)
+            }
+            MenuContainer {
+                MenuItemView(text = "Hatırlatıcılar", iconId = R.drawable.ic_notification_outlined, iconColor = Orange, iconBackgroundColor = OrangeLight)
+            }
+            MenuContainer {
+                MenuItemView(text = "Kategoriler", iconId = R.drawable.ic_category_outlined)
+                MenuSeparator()
+                MenuItemView(text = "Arkaplan", iconId = R.drawable.ic_paint_outlined)
+                MenuSeparator()
+                MenuItemView(text = "Ayarlar", iconId = R.drawable.ic_setting_outlined, iconColor = MenuIconGray, iconBackgroundColor = MenuIconBgGray)
             }
         }
     }
