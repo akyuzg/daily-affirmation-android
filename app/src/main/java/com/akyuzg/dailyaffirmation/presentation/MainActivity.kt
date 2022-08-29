@@ -12,7 +12,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.akyuzg.dailyaffirmation.presentation.navigation.AppNavGraph
-import com.akyuzg.dailyaffirmation.presentation.theme.DailyAffirmationAppTheme
+import com.akyuzg.dailyaffirmation.ui.theme.DailyAffirmationAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

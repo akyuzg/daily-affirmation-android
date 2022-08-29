@@ -19,8 +19,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akyuzg.dailyaffirmation.domain.model.Affirmation
-import com.akyuzg.dailyaffirmation.presentation.theme.IconButtonBackgroundColor
-import com.akyuzg.dailyaffirmation.presentation.theme.White
+import com.akyuzg.dailyaffirmation.ui.theme.IconButtonBackgroundColor
+import com.akyuzg.dailyaffirmation.ui.theme.White
 import com.akyuzg.dailyaffirmation.R
 
 

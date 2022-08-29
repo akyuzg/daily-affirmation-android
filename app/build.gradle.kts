@@ -72,4 +72,6 @@ dependencies {
     implementation(Dependencies.Room.ktx)
     kapt(Dependencies.Room.compiler)
 
+    implementation("io.coil-kt:coil-compose:2.2.0")
+
 }

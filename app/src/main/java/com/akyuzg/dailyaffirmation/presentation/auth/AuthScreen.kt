@@ -12,7 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import com.akyuzg.dailyaffirmation.presentation.components.*
 import com.akyuzg.dailyaffirmation.presentation.auth.components.FacebookLoginButton
 import com.akyuzg.dailyaffirmation.presentation.auth.components.GoogleLoginButton
-import com.akyuzg.dailyaffirmation.presentation.theme.White
+import com.akyuzg.dailyaffirmation.ui.theme.White
 import com.akyuzg.dailyaffirmation.R
 
 @Composable

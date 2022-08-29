@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import com.akyuzg.dailyaffirmation.presentation.theme.White
+import com.akyuzg.dailyaffirmation.ui.theme.White
 
 @Composable
 fun LogoWithText(){

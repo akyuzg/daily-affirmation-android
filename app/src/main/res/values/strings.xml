@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">DailyAffirmation</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="welcome">Hoşgeldin</string>
+    <string name="user_name_and_surname_placeholder">Güray Akyüz</string>
+    <string name="upgrade_to_premium">Premium\'a Yükselt</string>
+    <string name="upgrade_to_premium_description">7 gün ücretsiz - Tüm özellik ve içeriklere eriş.</string>
+    <string name="start_now">Şimdi Başlat</string>
 </resources>
